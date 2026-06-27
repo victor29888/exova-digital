@@ -1,46 +1,12 @@
+import { ServiceIcon } from "@/components/icons/ServiceIcons";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import type { Service } from "@/sanity/types";
 
-const services = [
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M8 20h8M12 18v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-    title: "Sites web à conversion",
-    description:
-      "Des sites rapides, élégants et pensés pour transformer vos visiteurs en clients. Design premium, copywriting orienté résultats, SEO intégré.",
-    features: ["Landing pages", "Sites vitrine", "E-commerce"],
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M8 8l2 2M14 14l2 2M16 8l-2 2M8 16l2-2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-    title: "Automatisations & agents IA",
-    description:
-      "Libérez votre équipe des tâches répétitives. Agents IA sur mesure, workflows intelligents et intégrations qui tournent 24h/24.",
-    features: ["Chatbots intelligents", "CRM automatisé", "Qualification de leads"],
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M4 18V6l8-3 8 3v12l-8 3-8-3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-        <path d="M12 3v18M4 6l8 3 8-3" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
-    ),
-    title: "Publicité digitale",
-    description:
-      "Des campagnes rentables sur Google Ads, Meta Ads et TikTok Ads. Ciblage précis, créas percutantes et optimisation continue.",
-    features: ["Google Ads", "Meta Ads", "TikTok Ads"],
-  },
-];
+interface ServicesProps {
+  services: Service[];
+}
 
-export function Services() {
+export function Services({ services }: ServicesProps) {
   return (
     <section id="services" className="py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6">
@@ -59,11 +25,11 @@ export function Services() {
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           {services.map((service) => (
             <div
-              key={service.title}
+              key={service._id}
               className="gradient-border group rounded-2xl bg-white/[0.02] p-8 transition-colors hover:bg-white/[0.04]"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-indigo-400 transition-colors group-hover:border-indigo-500/30 group-hover:bg-indigo-500/10">
-                {service.icon}
+                <ServiceIcon icon={service.icon} />
               </div>
               <h3 className="mt-6 text-lg font-semibold text-white">
                 {service.title}

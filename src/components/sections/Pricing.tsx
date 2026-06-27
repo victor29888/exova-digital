@@ -1,57 +1,12 @@
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import type { PricingPlan } from "@/sanity/types";
 
-const plans = [
-  {
-    name: "Essentiel",
-    description: "Pour lancer votre présence digitale avec impact.",
-    price: "2 490",
-    period: "projet",
-    features: [
-      "Site web sur mesure (5 pages)",
-      "Copywriting orienté conversion",
-      "Optimisation SEO de base",
-      "Formulaire de contact intelligent",
-      "Livraison en 3 semaines",
-    ],
-    highlighted: false,
-    cta: "Choisir Essentiel",
-  },
-  {
-    name: "Croissance",
-    description: "Site + publicité + automatisations pour scaler.",
-    price: "4 990",
-    period: "projet + 3 mois",
-    features: [
-      "Tout le plan Essentiel",
-      "Campagnes Google & Meta Ads",
-      "Agent IA de qualification de leads",
-      "Tableau de bord temps réel",
-      "Optimisation mensuelle incluse",
-      "Interlocuteur dédié",
-    ],
-    highlighted: true,
-    cta: "Choisir Croissance",
-  },
-  {
-    name: "Performance",
-    description: "Solution complète pour les PME ambitieuses.",
-    price: "Sur mesure",
-    period: "mensuel",
-    features: [
-      "Tout le plan Croissance",
-      "TikTok Ads & retargeting avancé",
-      "Automatisations CRM complètes",
-      "Tests A/B continus",
-      "Reporting hebdomadaire",
-      "Support prioritaire 7j/7",
-    ],
-    highlighted: false,
-    cta: "Nous contacter",
-  },
-];
+interface PricingProps {
+  plans: PricingPlan[];
+}
 
-export function Pricing() {
+export function Pricing({ plans }: PricingProps) {
   return (
     <section id="pricing" className="border-y border-white/[0.06] bg-white/[0.01] py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6">
@@ -71,7 +26,7 @@ export function Pricing() {
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           {plans.map((plan) => (
             <div
-              key={plan.name}
+              key={plan._id}
               className={`gradient-border relative flex flex-col rounded-2xl p-8 ${
                 plan.highlighted
                   ? "bg-indigo-500/[0.06] ring-1 ring-indigo-500/20"
@@ -91,14 +46,16 @@ export function Pricing() {
                 <p className="mt-2 text-sm text-zinc-500">{plan.description}</p>
               </div>
 
-              <div className="mt-6 flex items-baseline gap-1">
-                {plan.price !== "Sur mesure" && (
-                  <span className="text-sm text-zinc-500">à partir de</span>
+              <div className="mt-6 flex flex-wrap items-baseline gap-1">
+                {!plan.isCustomPrice && plan.pricePrefix && (
+                  <span className="text-sm text-zinc-500">{plan.pricePrefix}</span>
                 )}
                 <span className="text-3xl font-semibold tracking-tight text-white">
-                  {plan.price === "Sur mesure" ? plan.price : `${plan.price} €`}
+                  {plan.isCustomPrice
+                    ? plan.priceLabel
+                    : `${plan.priceLabel} €`}
                 </span>
-                {plan.price !== "Sur mesure" && (
+                {!plan.isCustomPrice && (
                   <span className="text-sm text-zinc-500">/ {plan.period}</span>
                 )}
               </div>
@@ -135,7 +92,7 @@ export function Pricing() {
                 variant={plan.highlighted ? "primary" : "secondary"}
                 className="mt-8 w-full"
               >
-                {plan.cta}
+                {plan.ctaLabel}
               </Button>
             </div>
           ))}

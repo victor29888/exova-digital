@@ -1,40 +1,17 @@
 import { Accordion } from "@/components/ui/Accordion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import type { FaqItem } from "@/sanity/types";
 
-const faqItems = [
-  {
-    question: "Combien de temps faut-il pour voir des résultats ?",
-    answer:
-      "Un site web est livré en 2 à 4 semaines selon la complexité. Les campagnes publicitaires génèrent leurs premiers leads dès la première semaine de diffusion. L'optimisation continue améliore les performances mois après mois.",
-  },
-  {
-    question: "Travaillez-vous uniquement avec des PME françaises ?",
-    answer:
-      "Oui, c'est notre spécialité. Nous comprenons le marché français, la fiscalité, les habitudes d'achat locales et les spécificités réglementaires (RGPD, cookies, etc.).",
-  },
-  {
-    question: "Proposez-vous un accompagnement après la livraison ?",
-    answer:
-      "Absolument. Tous nos plans incluent une période de suivi. Le plan Croissance et Performance comprennent une optimisation continue : ajustements publicitaires, mises à jour du site et amélioration des automatisations IA.",
-  },
-  {
-    question: "Quel budget publicitaire minimum recommandez-vous ?",
-    answer:
-      "Pour des résultats significatifs, nous recommandons un budget publicitaire minimum de 1 000 €/mois en plus de nos honoraires de gestion. Ce montant varie selon votre secteur et vos objectifs — nous vous conseillons lors de l'audit initial.",
-  },
-  {
-    question: "Comment fonctionnent les automatisations IA ?",
-    answer:
-      "Nous déployons des agents IA connectés à vos outils existants (CRM, email, calendrier). Ils qualifient vos leads, envoient des relances personnalisées et planifient des rendez-vous — automatiquement, 24h/24.",
-  },
-  {
-    question: "Puis-je commencer par un seul service ?",
-    answer:
-      "Oui. Vous pouvez démarrer avec un site web seul, puis ajouter la publicité ou l'IA plus tard. Nos formules sont modulaires et évoluent avec votre croissance.",
-  },
-];
+interface FAQProps {
+  items: FaqItem[];
+}
 
-export function FAQ() {
+export function FAQ({ items }: FAQProps) {
+  const accordionItems = items.map(({ question, answer }) => ({
+    question,
+    answer,
+  }));
+
   return (
     <section id="faq" className="py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6">
@@ -59,7 +36,7 @@ export function FAQ() {
           </div>
 
           <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] px-6">
-            <Accordion items={faqItems} />
+            <Accordion items={accordionItems} />
           </div>
         </div>
       </div>
