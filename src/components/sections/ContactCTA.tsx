@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 export function ContactCTA() {
   const [submitted, setSubmitted] = useState(false);
@@ -13,17 +14,19 @@ export function ContactCTA() {
   return (
     <section id="contact" className="py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="gradient-border relative overflow-hidden rounded-3xl bg-white/[0.02]">
-          <div className="hero-glow pointer-events-none absolute inset-0 opacity-50" />
+        <div className="gradient-border premium-card relative overflow-hidden rounded-[2rem]">
+          <div className="hero-glow pointer-events-none absolute inset-0 opacity-70" />
+          <div className="pointer-events-none absolute right-8 bottom-0 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
 
-          <div className="relative grid gap-12 p-8 lg:grid-cols-2 lg:gap-16 lg:p-16">
+          <div className="relative grid gap-12 p-6 sm:p-8 lg:grid-cols-[0.9fr_1fr] lg:gap-16 lg:p-12 xl:p-16">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              <SectionLabel>Audit gratuit</SectionLabel>
+              <h2 className="text-balance mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
                 Prêt à transformer
                 <br />
                 <span className="gradient-text">votre acquisition ?</span>
               </h2>
-              <p className="mt-4 max-w-md text-base leading-relaxed text-zinc-400">
+              <p className="mt-5 max-w-md text-base leading-8 text-zinc-400 sm:text-lg">
                 Réservez un appel découverte gratuit de 30 minutes. Nous
                 analysons votre situation et vous proposons un plan d&apos;action
                 concret — sans engagement.
@@ -37,9 +40,9 @@ export function ContactCTA() {
                 ].map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-3 text-sm text-zinc-400"
+                    className="flex items-center gap-3 text-sm text-zinc-300"
                   >
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500/20 text-indigo-400">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400/10 text-emerald-300">
                       <svg
                         width="10"
                         height="10"
@@ -60,10 +63,28 @@ export function ContactCTA() {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-10 grid grid-cols-3 gap-3">
+                {[
+                  ["30 min", "appel clair"],
+                  ["48h", "retour écrit"],
+                  ["0 €", "sans engagement"],
+                ].map(([value, label]) => (
+                  <div
+                    key={label}
+                    className="rounded-2xl border border-white/[0.07] bg-white/[0.03] p-4"
+                  >
+                    <p className="text-xl font-semibold tracking-tight text-white">
+                      {value}
+                    </p>
+                    <p className="mt-1 text-xs text-zinc-500">{label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {submitted ? (
-              <div className="flex flex-col items-center justify-center rounded-2xl border border-white/[0.06] bg-[#0a0a0a] p-12 text-center">
+              <div className="flex min-h-[460px] flex-col items-center justify-center rounded-3xl border border-white/[0.07] bg-[#0a0a0a] p-8 text-center sm:p-12">
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400">
                   <svg
                     width="24"
@@ -91,7 +112,7 @@ export function ContactCTA() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="space-y-4 rounded-2xl border border-white/[0.06] bg-[#0a0a0a] p-6 lg:p-8"
+                className="space-y-4 rounded-3xl border border-white/[0.07] bg-[#0a0a0a]/90 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] sm:p-6 lg:p-8"
               >
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
@@ -107,7 +128,7 @@ export function ContactCTA() {
                       type="text"
                       required
                       placeholder="Jean Dupont"
-                      className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/30"
+                      className="min-h-11 w-full rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-indigo-400/60 focus:ring-1 focus:ring-indigo-400/30"
                     />
                   </div>
                   <div>
@@ -123,7 +144,7 @@ export function ContactCTA() {
                       type="text"
                       required
                       placeholder="Ma PME"
-                      className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/30"
+                      className="min-h-11 w-full rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-indigo-400/60 focus:ring-1 focus:ring-indigo-400/30"
                     />
                   </div>
                 </div>
@@ -141,7 +162,7 @@ export function ContactCTA() {
                     type="email"
                     required
                     placeholder="jean@entreprise.fr"
-                    className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/30"
+                    className="min-h-11 w-full rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-indigo-400/60 focus:ring-1 focus:ring-indigo-400/30"
                   />
                 </div>
 
@@ -155,7 +176,7 @@ export function ContactCTA() {
                   <select
                     id="service"
                     name="service"
-                    className="w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2.5 text-sm text-white outline-none transition-colors focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/30"
+                    className="min-h-11 w-full rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-white outline-none transition-colors focus:border-indigo-400/60 focus:ring-1 focus:ring-indigo-400/30"
                   >
                     <option value="site">Site web à conversion</option>
                     <option value="ia">Automatisations & agents IA</option>
@@ -176,13 +197,13 @@ export function ContactCTA() {
                     name="message"
                     rows={4}
                     placeholder="Parlez-nous de vos objectifs, votre secteur et votre budget..."
-                    className="w-full resize-none rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/30"
+                    className="w-full resize-none rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-indigo-400/60 focus:ring-1 focus:ring-indigo-400/30"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-white py-3 text-sm font-medium text-zinc-950 transition-colors hover:bg-zinc-200"
+                  className="min-h-12 w-full rounded-full bg-white py-3 text-sm font-medium text-zinc-950 transition-all hover:-translate-y-0.5 hover:bg-zinc-100"
                 >
                   Envoyer ma demande
                 </button>

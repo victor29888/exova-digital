@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 import { getBlogPosts } from "@/sanity/lib/fetch";
 import { urlFor } from "@/sanity/lib/image";
 
@@ -25,34 +26,34 @@ export default async function BlogPage() {
   return (
     <>
       <Header />
-      <main className="pt-32 pb-24">
+      <main className="relative overflow-hidden pt-32 pb-24 lg:pt-40">
+        <div className="hero-glow pointer-events-none absolute inset-x-0 top-0 h-[32rem]" />
+        <div className="grid-pattern pointer-events-none absolute inset-x-0 top-0 h-[32rem] opacity-50" />
         <div className="mx-auto max-w-6xl px-6">
-          <div className="max-w-2xl">
-            <p className="text-xs font-medium tracking-wide text-indigo-400 uppercase">
-              Blog
-            </p>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white">
-              Conseils & actualités
+          <div className="relative max-w-3xl">
+            <SectionLabel>Blog</SectionLabel>
+            <h1 className="text-balance mt-6 text-5xl font-semibold tracking-tight text-white sm:text-6xl">
+              Conseils & <span className="gradient-text">actualités</span>
             </h1>
-            <p className="mt-4 text-base leading-relaxed text-zinc-400">
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-400">
               Stratégies d&apos;acquisition, tendances IA et bonnes pratiques
               pour les PME françaises.
             </p>
           </div>
 
           {posts.length === 0 ? (
-            <div className="mt-16 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-12 text-center">
+            <div className="premium-card relative mt-16 rounded-3xl p-12 text-center">
               <p className="text-zinc-400">
                 Aucun article publié pour le moment. Revenez bientôt !
               </p>
             </div>
           ) : (
-            <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="relative mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {posts.map((post) => (
                 <Link
                   key={post._id}
                   href={`/blog/${post.slug}`}
-                  className="gradient-border group overflow-hidden rounded-2xl bg-white/[0.02] transition-colors hover:bg-white/[0.04]"
+                  className="gradient-border premium-card premium-card-hover group overflow-hidden rounded-3xl"
                 >
                   {post.mainImage && (
                     <div className="relative aspect-[16/10] overflow-hidden">
@@ -68,10 +69,10 @@ export default async function BlogPage() {
                     <time className="text-xs text-zinc-500">
                       {formatDate(post.publishedAt)}
                     </time>
-                    <h2 className="mt-2 text-lg font-semibold text-white transition-colors group-hover:text-indigo-300">
+                    <h2 className="mt-3 text-xl font-semibold tracking-tight text-white transition-colors group-hover:text-indigo-200">
                       {post.title}
                     </h2>
-                    <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-zinc-400">
+                    <p className="mt-3 line-clamp-3 text-sm leading-7 text-zinc-400">
                       {post.excerpt}
                     </p>
                   </div>

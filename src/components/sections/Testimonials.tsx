@@ -63,15 +63,20 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
   }
 
   return (
-    <section id="testimonials" className="border-y border-white/[0.06] bg-white/[0.01] py-24 lg:py-32">
+    <section
+      id="testimonials"
+      className="border-y border-white/[0.08] bg-white/[0.012] py-24 lg:py-32"
+    >
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto max-w-2xl text-center">
-          <SectionLabel>Témoignages</SectionLabel>
-          <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Ce que disent{" "}
-            <span className="gradient-text">nos clients</span>
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-zinc-400">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <SectionLabel>Témoignages</SectionLabel>
+            <h2 className="text-balance mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              Ce que disent{" "}
+              <span className="gradient-text">nos clients</span>
+            </h2>
+          </div>
+          <p className="max-w-md text-base leading-8 text-zinc-400">
             Des PME françaises qui ont transformé leur acquisition client avec
             Exova Digital.
           </p>
@@ -81,13 +86,18 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
           {testimonials.map((testimonial) => (
             <blockquote
               key={testimonial._id}
-              className="gradient-border flex flex-col rounded-2xl bg-white/[0.02] p-8"
+              className="gradient-border premium-card premium-card-hover flex flex-col rounded-3xl p-7 sm:p-8"
             >
-              <StarRating rating={testimonial.rating} />
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-zinc-300">
+              <div className="flex items-center justify-between gap-4">
+                <StarRating rating={testimonial.rating} />
+                <span className="rounded-full border border-white/[0.07] bg-white/[0.03] px-2.5 py-1 text-[11px] text-zinc-500">
+                  Client PME
+                </span>
+              </div>
+              <p className="mt-6 flex-1 text-base leading-8 text-zinc-300">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
-              <footer className="mt-6 flex items-center gap-3 border-t border-white/[0.06] pt-6">
+              <footer className="mt-7 flex items-center gap-3 border-t border-white/[0.07] pt-6">
                 <Avatar testimonial={testimonial} />
                 <div>
                   <cite className="not-italic text-sm font-medium text-white">

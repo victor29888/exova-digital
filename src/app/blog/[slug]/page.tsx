@@ -49,11 +49,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <>
       <Header />
-      <main className="pt-32 pb-24">
-        <article className="mx-auto max-w-3xl px-6">
+      <main className="relative overflow-hidden pt-32 pb-24 lg:pt-40">
+        <div className="hero-glow pointer-events-none absolute inset-x-0 top-0 h-[30rem]" />
+        <div className="grid-pattern pointer-events-none absolute inset-x-0 top-0 h-[30rem] opacity-45" />
+        <article className="relative mx-auto max-w-3xl px-6">
           <Link
             href="/blog"
-            className="text-sm text-zinc-500 transition-colors hover:text-white"
+            className="inline-flex min-h-10 items-center rounded-full border border-white/[0.08] bg-white/[0.035] px-4 py-2 text-sm text-zinc-400 transition-all hover:-translate-y-0.5 hover:bg-white/[0.07] hover:text-white"
           >
             ← Retour au blog
           </Link>
@@ -62,21 +64,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <time className="text-sm text-zinc-500">
               {formatDate(post.publishedAt)}
             </time>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            <h1 className="text-balance mt-5 text-5xl font-semibold tracking-tight text-white sm:text-6xl">
               {post.title}
             </h1>
             {post.author && (
-              <p className="mt-4 text-sm text-zinc-400">Par {post.author}</p>
+              <p className="mt-5 text-sm text-zinc-400">Par {post.author}</p>
             )}
             {post.excerpt && (
-              <p className="mt-6 text-lg leading-relaxed text-zinc-400">
+              <p className="mt-7 text-xl leading-8 text-zinc-400">
                 {post.excerpt}
               </p>
             )}
           </header>
 
           {post.mainImage && (
-            <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-2xl">
+            <div className="gradient-border premium-card relative mt-10 aspect-[16/9] overflow-hidden rounded-3xl">
               <Image
                 src={urlFor(post.mainImage).width(1200).height(675).url()}
                 alt={post.mainImage.alt ?? post.title}
@@ -88,7 +90,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
 
           {post.body && (
-            <div className="mt-12">
+            <div className="mt-12 border-t border-white/[0.08] pt-10">
               <PortableTextContent value={post.body} />
             </div>
           )}

@@ -230,6 +230,15 @@ If a command cannot run because of missing credentials or environment, document 
 
 Primary deployment target is Vercel.
 
+Ongoing delivery rule:
+
+- This local project and the GitHub repository are the source of truth.
+- Cursor is no longer part of the workflow; Codex is the only active agent on this project.
+- For each task, run a production build when the change affects code, routes, config, dependencies, data fetching, CMS behavior, or deployment behavior.
+- After completing and verifying a task, commit the finished work, push it to `main`, and confirm that Vercel starts a deployment for the pushed commit.
+- If Git, GitHub, or Vercel configuration blocks commit, push, or deployment verification, fix that configuration before considering the task complete.
+- For documentation-only changes, a build is optional unless the documentation describes behavior that needs validation.
+
 Expected Vercel settings:
 
 - Framework preset: Next.js

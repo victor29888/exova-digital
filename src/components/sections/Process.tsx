@@ -29,36 +29,43 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="process" className="border-y border-white/[0.06] bg-white/[0.01] py-24 lg:py-32">
+    <section
+      id="process"
+      className="relative overflow-hidden border-y border-white/[0.08] bg-white/[0.012] py-24 lg:py-32"
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-400/30 to-transparent" />
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-lg">
+          <div className="max-w-2xl">
             <SectionLabel>Notre méthode</SectionLabel>
-            <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-balance mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
               Un processus clair,
               <br />
-              des résultats concrets
+              <span className="gradient-text">des résultats concrets</span>
             </h2>
           </div>
-          <p className="max-w-md text-sm leading-relaxed text-zinc-400 lg:text-base">
+          <p className="max-w-md text-base leading-8 text-zinc-400">
             Pas de jargon, pas de surprise. Vous savez exactement où en est
             votre projet à chaque étape, avec un interlocuteur dédié.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.04] sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step) => (
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, index) => (
             <div
               key={step.number}
-              className="group bg-[#050505] p-8 transition-colors hover:bg-white/[0.02]"
+              className="premium-card premium-card-hover group relative overflow-hidden rounded-3xl p-7"
             >
-              <span className="font-mono text-xs text-indigo-400">
+              {index < steps.length - 1 && (
+                <span className="absolute top-10 -right-2 hidden h-px w-8 bg-gradient-to-r from-indigo-400/50 to-transparent lg:block" />
+              )}
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-indigo-400/20 bg-indigo-400/10 font-mono text-xs text-indigo-300">
                 {step.number}
               </span>
-              <h3 className="mt-4 text-base font-semibold text-white">
+              <h3 className="mt-6 text-lg font-semibold tracking-tight text-white">
                 {step.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-500 transition-colors group-hover:text-zinc-400">
+              <p className="mt-3 text-sm leading-7 text-zinc-500 transition-colors group-hover:text-zinc-400">
                 {step.description}
               </p>
             </div>

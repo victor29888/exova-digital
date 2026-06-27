@@ -27,20 +27,20 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
     <section id="blog" className="py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-          <div>
+          <div className="max-w-2xl">
             <SectionLabel>Blog</SectionLabel>
-            <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-balance mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
               Conseils &{" "}
               <span className="gradient-text">actualités</span>
             </h2>
-            <p className="mt-4 max-w-lg text-base leading-relaxed text-zinc-400">
+            <p className="mt-5 max-w-lg text-base leading-8 text-zinc-400">
               Stratégies d&apos;acquisition, tendances IA et bonnes pratiques
               pour les PME françaises.
             </p>
           </div>
           <Link
             href="/blog"
-            className="text-sm text-zinc-400 transition-colors hover:text-white"
+            className="rounded-full border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-zinc-300 transition-all hover:-translate-y-0.5 hover:bg-white/[0.07] hover:text-white"
           >
             Voir tous les articles →
           </Link>
@@ -49,7 +49,7 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           <Link
             href={`/blog/${featured.slug}`}
-            className="gradient-border group relative overflow-hidden rounded-2xl bg-white/[0.02] lg:col-span-2 lg:row-span-2"
+            className="gradient-border premium-card premium-card-hover group relative overflow-hidden rounded-3xl lg:col-span-2 lg:row-span-2"
           >
             {featured.mainImage && (
               <div className="relative aspect-[16/9] overflow-hidden lg:aspect-auto lg:h-full lg:min-h-[320px]">
@@ -62,14 +62,14 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
               </div>
             )}
-            <div className="relative p-8">
+            <div className="relative p-7 sm:p-8">
               <time className="text-xs text-zinc-500">
                 {formatDate(featured.publishedAt)}
               </time>
-              <h3 className="mt-2 text-xl font-semibold text-white transition-colors group-hover:text-indigo-300">
+              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white transition-colors group-hover:text-indigo-200">
                 {featured.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-3 text-sm leading-7 text-zinc-400">
                 {featured.excerpt}
               </p>
             </div>
@@ -79,15 +79,15 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
             <Link
               key={post._id}
               href={`/blog/${post.slug}`}
-              className="gradient-border group rounded-2xl bg-white/[0.02] p-6 transition-colors hover:bg-white/[0.04]"
+              className="gradient-border premium-card premium-card-hover group rounded-3xl p-6"
             >
               <time className="text-xs text-zinc-500">
                 {formatDate(post.publishedAt)}
               </time>
-              <h3 className="mt-2 text-base font-semibold text-white transition-colors group-hover:text-indigo-300">
+              <h3 className="mt-3 text-lg font-semibold tracking-tight text-white transition-colors group-hover:text-indigo-200">
                 {post.title}
               </h3>
-              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-3 line-clamp-3 text-sm leading-7 text-zinc-400">
                 {post.excerpt}
               </p>
             </Link>

@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://exova-digital.fr"),
   title: "Exova Digital — Agence digitale premium pour PME",
   description:
     "Sites web à conversion, automatisations IA et publicité digitale (Google, Meta, TikTok) pour les PME françaises. Plus de clients, moins d'efforts.",
@@ -31,6 +32,7 @@ export const metadata: Metadata = {
       "Sites web, IA et publicité digitale pour accélérer la croissance des PME françaises.",
     type: "website",
     locale: "fr_FR",
+    siteName: "Exova Digital",
   },
 };
 
@@ -44,7 +46,10 @@ export default function RootLayout({
       lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full bg-[#050505] text-white">{children}</body>
+      <body className="min-h-full overflow-x-hidden bg-[#050505] text-white">
+        <div className="noise-overlay pointer-events-none fixed inset-0 z-50" />
+        {children}
+      </body>
     </html>
   );
 }

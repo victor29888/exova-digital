@@ -15,7 +15,7 @@ export function Accordion({ items }: AccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className="divide-y divide-white/[0.06]">
+    <div className="divide-y divide-white/[0.07]">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
 
@@ -24,14 +24,14 @@ export function Accordion({ items }: AccordionProps) {
             <button
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : index)}
-              className="flex w-full items-center justify-between gap-4 py-5 text-left transition-colors hover:text-white"
+              className="group flex w-full items-center justify-between gap-4 py-6 text-left transition-colors hover:text-white"
               aria-expanded={isOpen}
             >
-              <span className="text-base font-medium text-zinc-100">
+              <span className="text-base font-medium leading-snug text-zinc-100 transition-colors group-hover:text-white">
                 {item.question}
               </span>
               <span
-                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-zinc-400 transition-transform duration-200 ${isOpen ? "rotate-45" : ""}`}
+                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-zinc-400 transition-all duration-200 group-hover:border-white/20 group-hover:text-white ${isOpen ? "rotate-45 bg-indigo-500/10 text-indigo-300" : ""}`}
               >
                 <svg
                   width="14"
@@ -50,10 +50,10 @@ export function Accordion({ items }: AccordionProps) {
               </span>
             </button>
             <div
-              className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100 pb-5" : "grid-rows-[0fr] opacity-0"}`}
+              className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100 pb-6" : "grid-rows-[0fr] opacity-0"}`}
             >
               <div className="overflow-hidden">
-                <p className="max-w-2xl text-sm leading-relaxed text-zinc-400">
+                <p className="max-w-2xl text-sm leading-7 text-zinc-400">
                   {item.answer}
                 </p>
               </div>
