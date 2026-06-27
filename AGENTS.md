@@ -212,17 +212,16 @@ Local URLs:
 
 ## Verification Workflow
 
-For documentation-only changes:
+For every completed task:
 
-- No build is required unless the docs describe commands or behavior that should be checked.
-
-For code changes:
-
-1. Read the relevant Next.js local docs first.
+1. Read the relevant Next.js local docs first when touching Next.js code.
 2. Run `npm run lint`.
-3. Run `npm run build` for changes touching routes, data fetching, Sanity, images, metadata, or config.
-4. Manually inspect the affected page in a browser for visual changes.
+3. Run `npm run build`.
+4. Manually inspect affected pages in a browser when UI changes.
 5. Check mobile and desktop layouts when changing UI.
+6. Commit the finished work.
+7. Push to `origin main`.
+8. Verify that a Vercel deployment has started successfully.
 
 If a command cannot run because of missing credentials or environment, document the limitation clearly.
 
@@ -234,10 +233,9 @@ Ongoing delivery rule:
 
 - This local project and the GitHub repository are the source of truth.
 - Cursor is no longer part of the workflow; Codex is the only active agent on this project.
-- For each task, run a production build when the change affects code, routes, config, dependencies, data fetching, CMS behavior, or deployment behavior.
-- After completing and verifying a task, commit the finished work, push it to `main`, and confirm that Vercel starts a deployment for the pushed commit.
-- If Git, GitHub, or Vercel configuration blocks commit, push, or deployment verification, fix that configuration before considering the task complete.
-- For documentation-only changes, a build is optional unless the documentation describes behavior that needs validation.
+- Every task must end with `npm run lint`, `npm run build`, `git commit`, `git push origin main`, and verification that Vercel started deploying the pushed commit.
+- Only consider a task complete after the push to `origin main` succeeds and the Vercel deployment start is verified.
+- If Git, GitHub, or Vercel configuration blocks lint, build, commit, push, or deployment verification, fix that configuration before considering the task complete.
 
 Expected Vercel settings:
 
