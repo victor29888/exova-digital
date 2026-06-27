@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const footerLinks = {
@@ -42,12 +43,13 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2.5">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-sm font-bold text-zinc-950 shadow-[0_0_28px_rgba(255,255,255,0.16)]">
-                E
-              </span>
-              <span className="text-sm font-semibold text-white">
-                Exova Digital
-              </span>
+              <Image
+                src="/logo-exova.png"
+                alt="Exova Digital"
+                width={120}
+                height={40}
+                className="h-10 w-auto object-contain"
+              />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-6 text-zinc-500">
               Agence digitale premium pour les PME françaises. Nous transformons
@@ -74,8 +76,8 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                  className="text-sm text-zinc-400 transition-colors hover:text-white"
-                >
+                    className="text-sm text-zinc-400 transition-colors hover:text-white"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -92,8 +94,8 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                  className="text-sm text-zinc-400 transition-colors hover:text-white"
-                >
+                    className="text-sm text-zinc-400 transition-colors hover:text-white"
+                  >
                     {link.label}
                   </Link>
                 </li>
