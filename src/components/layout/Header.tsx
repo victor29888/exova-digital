@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
@@ -40,12 +41,14 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 lg:h-[76px]">
         <Link href="/" className="group flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-sm font-bold text-zinc-950 shadow-[0_0_28px_rgba(255,255,255,0.18)] transition-transform group-hover:scale-105">
-            E
-          </span>
-          <span className="text-sm font-semibold tracking-tight text-white sm:text-[15px]">
-            Exova Digital
-          </span>
+          <Image
+            src="/logo-exova.png"
+            alt="Exova Digital"
+            width={120}
+            height={40}
+            className="h-10 w-auto object-contain transition-transform group-hover:scale-105"
+            priority
+          />
         </Link>
 
         <nav
