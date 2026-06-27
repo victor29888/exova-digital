@@ -77,7 +77,7 @@ export function ContactCTA() {
                     <p className="text-xl font-semibold tracking-tight text-white">
                       {value}
                     </p>
-                    <p className="mt-1 text-xs text-zinc-500">{label}</p>
+                    <p className="mt-1 text-xs text-zinc-400">{label}</p>
                   </div>
                 ))}
               </div>
@@ -118,7 +118,7 @@ export function ContactCTA() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="mb-1.5 block text-xs font-medium text-zinc-500"
+                      className="mb-1.5 block text-xs font-medium text-zinc-400"
                     >
                       Nom complet
                     </label>
@@ -128,13 +128,13 @@ export function ContactCTA() {
                       type="text"
                       required
                       placeholder="Jean Dupont"
-                      className="min-h-11 w-full rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-indigo-400/60 focus:ring-1 focus:ring-indigo-400/30"
+                      className="min-h-11 w-full rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-white placeholder:text-zinc-500 outline-none transition-colors focus:border-indigo-400/60 focus:ring-1 focus:ring-indigo-400/30"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="company"
-                      className="mb-1.5 block text-xs font-medium text-zinc-500"
+                      className="mb-1.5 block text-xs font-medium text-zinc-400"
                     >
                       Entreprise
                     </label>
@@ -144,7 +144,7 @@ export function ContactCTA() {
                       type="text"
                       required
                       placeholder="Ma PME"
-                      className="min-h-11 w-full rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-indigo-400/60 focus:ring-1 focus:ring-indigo-400/30"
+                      className="min-h-11 w-full rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-white placeholder:text-zinc-500 outline-none transition-colors focus:border-indigo-400/60 focus:ring-1 focus:ring-indigo-400/30"
                     />
                   </div>
                 </div>
@@ -152,7 +152,7 @@ export function ContactCTA() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="mb-1.5 block text-xs font-medium text-zinc-500"
+                    className="mb-1.5 block text-xs font-medium text-zinc-400"
                   >
                     Email professionnel
                   </label>
@@ -162,14 +162,14 @@ export function ContactCTA() {
                     type="email"
                     required
                     placeholder="jean@entreprise.fr"
-                    className="min-h-11 w-full rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-indigo-400/60 focus:ring-1 focus:ring-indigo-400/30"
+                    className="min-h-11 w-full rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-white placeholder:text-zinc-500 outline-none transition-colors focus:border-indigo-400/60 focus:ring-1 focus:ring-indigo-400/30"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="service"
-                    className="mb-1.5 block text-xs font-medium text-zinc-500"
+                    className="mb-1.5 block text-xs font-medium text-zinc-400"
                   >
                     Service souhaité
                   </label>
@@ -188,7 +188,7 @@ export function ContactCTA() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="mb-1.5 block text-xs font-medium text-zinc-500"
+                    className="mb-1.5 block text-xs font-medium text-zinc-400"
                   >
                     Décrivez votre projet
                   </label>
@@ -197,7 +197,7 @@ export function ContactCTA() {
                     name="message"
                     rows={4}
                     placeholder="Parlez-nous de vos objectifs, votre secteur et votre budget..."
-                    className="w-full resize-none rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-indigo-400/60 focus:ring-1 focus:ring-indigo-400/30"
+                    className="w-full resize-none rounded-2xl border border-white/[0.08] bg-white/[0.035] px-4 py-2.5 text-sm text-white placeholder:text-zinc-500 outline-none transition-colors focus:border-indigo-400/60 focus:ring-1 focus:ring-indigo-400/30"
                   />
                 </div>
 
@@ -208,7 +208,7 @@ export function ContactCTA() {
                   Envoyer ma demande
                 </button>
 
-                <p className="text-center text-xs text-zinc-600">
+                <p className="text-center text-xs text-zinc-400">
                   En soumettant ce formulaire, vous acceptez d&apos;être
                   recontacté par Exova Digital.
                 </p>

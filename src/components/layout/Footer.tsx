@@ -26,7 +26,7 @@ export function Footer() {
               <p className="text-sm font-medium text-white">
                 Une acquisition plus nette commence par un diagnostic.
               </p>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-500">
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-400">
                 Audit gratuit de votre site, de vos campagnes et de vos
                 automatisations. Plan d&apos;action priorisé sous 48h ouvrées.
               </p>
@@ -51,7 +51,7 @@ export function Footer() {
                 className="h-10 w-auto object-contain"
               />
             </Link>
-            <p className="mt-4 max-w-sm text-sm leading-6 text-zinc-500">
+            <p className="mt-4 max-w-sm text-sm leading-6 text-zinc-400">
               Agence digitale premium pour les PME françaises. Nous transformons
               votre présence en ligne en un moteur de croissance mesurable.
             </p>
@@ -59,7 +59,7 @@ export function Footer() {
               {["Sites web", "IA", "Ads", "ROI"].map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-white/[0.07] bg-white/[0.03] px-3 py-1 text-xs text-zinc-500"
+                  className="rounded-full border border-white/[0.07] bg-white/[0.03] px-3 py-1 text-xs text-zinc-400"
                 >
                   {item}
                 </span>
@@ -68,7 +68,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-medium tracking-wide text-zinc-500 uppercase">
+            <h3 className="text-xs font-medium tracking-wide text-zinc-400 uppercase">
               Navigation
             </h3>
             <ul className="mt-4 space-y-3">
@@ -86,7 +86,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-medium tracking-wide text-zinc-500 uppercase">
+            <h3 className="text-xs font-medium tracking-wide text-zinc-400 uppercase">
               Expertises
             </h3>
             <ul className="mt-4 space-y-3">
@@ -105,19 +105,19 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-8 sm:flex-row">
-          <p className="text-xs text-zinc-600">
+          <p className="text-xs text-zinc-400">
             © {new Date().getFullYear()} Exova Digital. Tous droits réservés.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <Link
               href="#"
-              className="text-xs text-zinc-600 transition-colors hover:text-zinc-400"
+              className="text-xs text-zinc-400 transition-colors hover:text-white"
             >
               Mentions légales
             </Link>
             <Link
               href="#"
-              className="text-xs text-zinc-600 transition-colors hover:text-zinc-400"
+              className="text-xs text-zinc-400 transition-colors hover:text-white"
             >
               Politique de confidentialité
             </Link>

@@ -127,7 +127,7 @@ export function Header() {
             >
               Réserver un appel
             </Button>
-            <p className="mt-2 text-center text-xs text-zinc-600">
+            <p className="mt-2 text-center text-xs text-zinc-400">
               Audit gratuit, réponse sous 48h ouvrées.
             </p>
           </nav>
