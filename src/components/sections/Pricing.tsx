@@ -47,14 +47,14 @@ export function Pricing({ plans }: PricingProps) {
                 <h3 className="text-xl font-semibold tracking-tight text-white">
                   {plan.name}
                 </h3>
-                <p className="mt-3 text-sm leading-6 text-zinc-500">
+                <p className="mt-3 text-sm leading-6 text-zinc-400">
                   {plan.description}
                 </p>
               </div>
 
               <div className="mt-7 flex flex-wrap items-baseline gap-1">
                 {!plan.isCustomPrice && plan.pricePrefix && (
-                  <span className="mr-1 text-sm text-zinc-500">
+                  <span className="mr-1 text-sm text-zinc-400">
                     {plan.pricePrefix}
                   </span>
                 )}
@@ -64,7 +64,7 @@ export function Pricing({ plans }: PricingProps) {
                     : `${plan.priceLabel} €`}
                 </span>
                 {!plan.isCustomPrice && (
-                  <span className="text-sm text-zinc-500">/ {plan.period}</span>
+                  <span className="text-sm text-zinc-400">/ {plan.period}</span>
                 )}
               </div>
 
@@ -106,7 +106,7 @@ export function Pricing({ plans }: PricingProps) {
           ))}
         </div>
 
-        <p className="mt-10 text-center text-sm leading-6 text-zinc-600">
+        <p className="mt-10 text-center text-sm leading-6 text-zinc-400">
           Besoin d&apos;une formule sur mesure ?{" "}
           <a
             href="#contact"
